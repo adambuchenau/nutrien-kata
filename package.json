@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "ts-node-dev --respawn src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env' -e \"ssh -i ~/.ssh/test.pem\" . ubuntu@ec2-3-149-239-150.us-east-2.compute.amazonaws.com:~/app"
+    
   },
   "dependencies": {
     "csv-parse": "^5.6.0",
