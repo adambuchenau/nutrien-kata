@@ -9,3 +9,12 @@ describe('GET /health', () => {
         expect(response.body).toEqual(expectedResponse);
     });
 });
+
+describe('GET /:column/histogram', () => {
+    it('should return status ok with results', async () => {
+        const expectedResponse = {"undefined":2928}
+        const response = await request(app).get('/test/histogram');
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual(expectedResponse);
+    });
+});
